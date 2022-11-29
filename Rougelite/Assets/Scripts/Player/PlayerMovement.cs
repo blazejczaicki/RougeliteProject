@@ -38,35 +38,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Move()
 	{
-		//if (Keyboard.current.wKey.ReadValue() == 1)
-		//{
-		//	direction = 1;
-		//}
-		//else if (Keyboard.current.sKey.ReadValue() == 1)
-		//{
-		//	direction = -1;
-		//}
-		//else
-		//{
-		//	direction = 0;
-		//}
-
 		var velocity = transform.forward * direction.x * speed;
 		characterController.SimpleMove(velocity);
 	}
 
 	private void Rotate()
 	{
-		//if (Keyboard.current.dKey.ReadValue() == 1)
-		//{
-		//	angle += angleSpeed * Time.deltaTime;
-		//}
-		//if (Keyboard.current.aKey.ReadValue() == 1)
-		//{
-		//	angle -= angleSpeed * Time.deltaTime;
-		//}
-
-
 		angle += direction.y * angleSpeed * Time.deltaTime;
 		transform.rotation = Quaternion.AngleAxis(angle, Vector3.up);
 	}

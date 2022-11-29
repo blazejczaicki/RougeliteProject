@@ -52,11 +52,6 @@ public class CameraMovement : MonoBehaviour
 		ProjectContext.InputManager.inputControls.Player.Zoom.performed -= OnZoom;
 	}
 
-	private void Update()
-	{
-
-	}
-
 	private void LateUpdate()
 	{
 		Follow();
@@ -70,14 +65,12 @@ public class CameraMovement : MonoBehaviour
 		var rad = angle * (float)Mathf.PI / 180f;
 		var currentPosition = new Vector3((float)Mathf.Cos(rad) * currentRadiusFromFocusPoint, currentCameraHeight, (float)Mathf.Sin(rad) * currentRadiusFromFocusPoint)  + _focusTarget.position;
 		transform.position = currentPosition;
-		//transform.position = Vector3.Lerp(transform.position, currentPosition, smoothness);
 	}
 
 	private void LookAtTarget()
 	{
 		var relativePosition =  _focusTarget.position - transform.position;
 		transform.rotation = Quaternion.LookRotation(relativePosition, Vector3.up);
-		//transform.rotation = transform.rotation * Quaternion.AngleAxis(angle, Vector3.up);
 	}
 
 	private void RotateAround()
